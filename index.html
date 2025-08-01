@@ -61,5 +61,35 @@
     message.classList.toggle("show");
   }
 </script>
+  <!-- Music -->
+<audio id="bgMusic" src="indila.mp3" autoplay loop></audio>
+<button id="musicBtn">Pause Music</button>
+
+<!-- Hidden Message -->
+<button id="revealBtn">Tap to Reveal</button>
+<div id="hiddenMessage" style="display: none;">
+  <h2>I love your clumsiness and the way you talk to me, Ruchu ❤️</h2>
+</div>
+  <script>
+  const music = document.getElementById('bgMusic');
+  const musicBtn = document.getElementById('musicBtn');
+  const revealBtn = document.getElementById('revealBtn');
+  const hiddenMsg = document.getElementById('hiddenMessage');
+
+  musicBtn.addEventListener('click', () => {
+    if (music.paused) {
+      music.play();
+      musicBtn.textContent = 'Pause Music';
+    } else {
+      music.pause();
+      musicBtn.textContent = 'Play Music';
+    }
+  });
+
+  revealBtn.addEventListener('click', () => {
+    hiddenMsg.style.display = 'block';
+    revealBtn.style.display = 'none';
+  });
+  </script>
 </body>
 </html>
