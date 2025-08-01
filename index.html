@@ -9,6 +9,10 @@
 <body>
   <div class="hearts"></div>
 
+  <!-- Music Control Button -->
+  <button id="musicBtn">Pause Music 🎵</button>
+  <audio id="bgMusic" src="indila.mp3" autoplay loop></audio>
+
   <div class="content">
     <h1>Hi Ruchu 💖</h1>
     <p>
@@ -27,15 +31,16 @@
     </div>
   </div>
 
-  <!-- Music -->
-  <audio id="bgMusic" src="indila.mp3" autoplay loop></audio>
-  <button id="musicBtn">Pause Music 🎵</button>
-
   <script>
     const music = document.getElementById("bgMusic");
     const musicBtn = document.getElementById("musicBtn");
     const revealBtn = document.getElementById("revealBtn");
     const hiddenMessage = document.getElementById("hiddenMessage");
+
+    // Set initial button label
+    window.addEventListener("load", () => {
+      musicBtn.textContent = music.paused ? "Play Music 🎶" : "Pause Music 🎵";
+    });
 
     musicBtn.addEventListener("click", () => {
       if (music.paused) {
