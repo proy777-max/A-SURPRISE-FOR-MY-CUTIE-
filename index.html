@@ -2,70 +2,66 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>For My Cutie ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Surprise for My Cutie</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <!-- Floating Hearts -->
+  <!-- Floating hearts -->
   <div class="hearts"></div>
 
-  <!-- Romantic Message -->
+  <!-- Main content -->
   <div class="content">
-    <h1>Happy Girlfriend’s Day, Ruchu! ❤️</h1>
-    <p>You've been my sunshine, my calm, my chaos — and I love your clumsiness and the way you always talk to me.</p>
+    <h1>Hi Ruchu 💖</h1>
+    <p>
+      We've been together for over a year now, and every single day with you feels magical.
+      I love your clumsiness, your nonstop talking, and your beautiful heart.
+    </p>
+    
+    <!-- Tap to reveal -->
+    <button id="revealBtn">Tap to Reveal 💌</button>
+    <div id="hiddenMessage">
+      <p>Ruchu, I love you endlessly. You're my peace, my joy, my everything. 💕</p>
+      <img src="ruchu2.jpg" alt="Us together" />
+    </div>
   </div>
 
-  <!-- Photos -->
-  <div class="photos">
-    <img src="ruchu1.jpg" alt="Ruchu 1" />
-    <img src="ruchu2.jpg" alt="Ruchu 2" />
-    <img src="ruchu3.jpg" alt="Ruchu 3" />
-  </div>
-
-  <!-- Reveal Button -->
-  <button id="revealBtn">Tap to Reveal</button>
-  <div id="hiddenMessage" style="display: none;">
-    <h2>You are the best thing that ever happened to me 💖</h2>
-  </div>
-
-  <!-- Music Player -->
+  <!-- Music Controls -->
   <audio id="bgMusic" src="indila.mp3" autoplay loop></audio>
-  <button id="musicBtn">Pause Music</button>
+  <button id="musicBtn">Pause Music 🎵</button>
 
   <!-- Scripts -->
   <script>
-    // Floating hearts
-    const heartsContainer = document.querySelector('.hearts');
-    setInterval(() => {
-      const heart = document.createElement('div');
-      heart.className = 'heart';
-      heart.style.left = Math.random() * 100 + 'vw';
-      heartsContainer.appendChild(heart);
-      setTimeout(() => heart.remove(), 4000);
-    }, 500);
+    const music = document.getElementById("bgMusic");
+    const musicBtn = document.getElementById("musicBtn");
+    const revealBtn = document.getElementById("revealBtn");
+    const hiddenMessage = document.getElementById("hiddenMessage");
 
-    // Music Button
-    const music = document.getElementById('bgMusic');
-    const musicBtn = document.getElementById('musicBtn');
-    musicBtn.addEventListener('click', () => {
+    musicBtn.addEventListener("click", () => {
       if (music.paused) {
         music.play();
-        musicBtn.textContent = 'Pause Music';
+        musicBtn.textContent = "Pause Music 🎵";
       } else {
         music.pause();
-        musicBtn.textContent = 'Play Music';
+        musicBtn.textContent = "Play Music 🎶";
       }
     });
 
-    // Reveal Button
-    const revealBtn = document.getElementById('revealBtn');
-    const hiddenMsg = document.getElementById('hiddenMessage');
-    revealBtn.addEventListener('click', () => {
-      hiddenMsg.style.display = 'block';
-      revealBtn.style.display = 'none';
+    revealBtn.addEventListener("click", () => {
+      hiddenMessage.style.display = "block";
+      revealBtn.style.display = "none";
     });
+
+    // Floating hearts
+    const heartsContainer = document.querySelector(".hearts");
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.style.left = Math.random() * 100 + "vw";
+      heartsContainer.appendChild(heart);
+      setTimeout(() => heart.remove(), 4000);
+    }
+    setInterval(createHeart, 300);
   </script>
 </body>
 </html>
