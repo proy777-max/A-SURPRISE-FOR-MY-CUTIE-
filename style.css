@@ -2,212 +2,76 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(to bottom right, #ffd6e0, #ffe6f2);
-  color: #333;
-  text-align: center;
-}
-
-.container {
-  padding: 20px;
-}
-
-h1 {
-  font-size: 2.5rem;
-  color: #d63384;
-  margin-bottom: 20px;
-}
-
-.letter {
-  max-width: 600px;
-  margin: 0 auto 30px;
-  background: #fff;
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: #444;
-}
-
-.photos {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.photos img {
-  width: 110px;
-  height: 110px;
-  object-fit: cover;
-  border-radius: 12px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-  transition: transform 0.3s ease;
-}
-
-.photos img:hover {
-  transform: scale(1.05);
-}
-/* Floating Hearts Animation */
-.hearts-container {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  overflow: hidden;
-  top: 0;
-  left: 0;
-}
-
-.hearts-container::before {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-image:url('ruchu4.jpg');
+  background-image: url('ruchu4.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-repeat: repeat;
-  animation: floatHearts 20s linear infinite;
-  opacity: 0.5;
+  color: white;
+  text-align: center;
+  overflow-x: hidden;
 }
 
-@keyframes floatHearts {
-  0% {
-    background-position: 0% 100%;
-  }
-  100% {
-    background-position: 0% 0%;
-  }
-}
-
-/* Photo Gallery */
-.photos {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 30px;
-  flex-wrap: wrap;
-}
-
-.photos img {
-  width: 30%;
+.content {
+  padding: 30px;
+  background: rgba(0, 0, 0, 0.5);
+  margin: 20px;
   border-radius: 20px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
-/* Floating Hearts Animation */
-.hearts-container {
+
+.photos img {
+  width: 200px;
+  height: auto;
+  margin: 10px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px #fff;
+}
+
+button {
+  padding: 12px 25px;
+  margin: 15px;
+  font-size: 16px;
+  background-color: #ff69b4;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+#hiddenMessage {
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+/* Floating hearts */
+.hearts {
   position: fixed;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  overflow: hidden;
   top: 0;
   left: 0;
-}
-
-.hearts-container::before {
-  content: '';
-  position: absolute;
   width: 100%;
   height: 100%;
-  background-image:url('ruchu4.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-repeat: repeat;
-  animation: floatHearts 20s linear infinite;
-  opacity: 0.5;
-}
-
-@keyframes floatHearts {
-  0% {
-    background-position: 0% 100%;
-  }
-  100% {
-    background-position: 0% 0%;
-  }
-}
-
-/* Reveal message styles */
-.hidden-message {
-  display: none;
-  margin-top: 20px;
-  background: #fff5f8;
-  padding: 20px;
-  border-radius: 10px;
-  text-align: center;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
-
-.hidden-message.show {
-  display: block;
-}
-/* Floating Hearts Animation */
-.hearts-container {
-  position: fixed;
-  width: 100%;
-  height: 100%;
+  pointer-events: none;
   overflow: hidden;
   z-index: 0;
-  top: 0;
-  left: 0;
 }
 
 .heart {
   position: absolute;
   width: 20px;
   height: 20px;
-  background-color: pink;
-  transform: rotate(45deg);
-  animation: floatHearts 10s linear infinite;
+  background: pink;
+  animation: float 4s linear infinite;
+  opacity: 0.8;
+  clip-path: polygon(50% 0%, 100% 35%, 80% 100%, 50% 80%, 20% 100%, 0% 35%);
 }
 
-.heart::before,
-.heart::after {
-  content: "";
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  background-color: pink;
-  border-radius: 50%;
-}
-
-.heart::before {
-  top: -10px;
-  left: 0;
-}
-
-.heart::after {
-  top: 0;
-  left: -10px;
-}
-
-@keyframes floatHearts {
+@keyframes float {
   0% {
-    transform: translateY(100vh) rotate(0deg);
+    transform: translateY(0);
     opacity: 1;
   }
   100% {
-    transform: translateY(-10vh) rotate(360deg);
+    transform: translateY(-100vh);
     opacity: 0;
   }
-}
-
-/* Tap to Reveal Message */
-.hidden-message {
-  display: none;
-  transition: all 0.3s ease;
-  background-color: #ffeaf4;
-  padding: 15px;
-  margin-top: 10px;
-  border-radius: 12px;
-  box-shadow: 0 0 10px #f8c0da;
-}
-
-.hidden-message.show {
-  display: block;
 }
