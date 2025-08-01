@@ -48,3 +48,48 @@ h1 {
 .photos img:hover {
   transform: scale(1.05);
 }
+/* Floating Hearts Animation */
+.hearts-container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+}
+
+.hearts-container::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://i.imgur.com/fnUNmUo.png'); /* heart image */
+  background-repeat: repeat;
+  animation: floatHearts 20s linear infinite;
+  opacity: 0.5;
+}
+
+@keyframes floatHearts {
+  0% {
+    background-position: 0% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+/* Photo Gallery */
+.photos {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.photos img {
+  width: 30%;
+  border-radius: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
