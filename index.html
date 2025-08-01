@@ -3,93 +3,69 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>To My Ruchu 💖</title>
+  <title>For My Cutie ❤️</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Floating hearts -->
-<div class="hearts-container"></div>
 
-<!-- Music control button -->
-<button class="music-btn" onclick="toggleMusic()">💖 Play Music</button>
-<audio id="bg-music" loop>
-  <source src="indila.mp3" type="audio/mpeg">
-</audio>
+  <!-- Floating Hearts -->
+  <div class="hearts"></div>
 
-<!-- Tap to Reveal Love Message -->
-<div class="surprise-wrapper">
-  <button class="reveal-btn" onclick="revealMessage()">💌 Tap to Reveal</button>
-  <div id="love-message" class="hidden-message">
-    <h2>Dear Ruchu,</h2>
-    <p>
-      I love you Sonama ✨ i also lob ur clumsy little ways to annoy me and how you never stop talking to me😍 you're mine crab 🦀😁 You make even
-      the smallest moments feel like magic. This is my little surprise for you on 
-      Girlfriend’s Day. 💖 sorry i forgot what day is today 😅 I love you endlessly ruchuu 💋💋💋💋💝.
-    </p>
+  <!-- Romantic Message -->
+  <div class="content">
+    <h1>Happy Girlfriend’s Day, Ruchu! ❤️</h1>
+    <p>You've been my sunshine, my calm, my chaos — and I love your clumsiness and the way you always talk to me.</p>
   </div>
-</div>
 
-<!-- Romantic Photos -->
-<div class="photos">
-  <img src="ruchu1.jpg" alt="Us Together">
-  <img src="ruchu2.jpg" alt="Cute Moment">
-  <img src="ruchu3.jpg" alt="Forever Love">
-</div>
+  <!-- Photos -->
+  <div class="photos">
+    <img src="ruchu1.jpg" alt="Ruchu 1" />
+    <img src="ruchu2.jpg" alt="Ruchu 2" />
+    <img src="ruchu3.jpg" alt="Ruchu 3" />
+  </div>
 
-<!-- JavaScript -->
-<script>
-  function revealMessage() {
-    document.getElementById('love-message').classList.add('show');
-  }
+  <!-- Reveal Button -->
+  <button id="revealBtn">Tap to Reveal</button>
+  <div id="hiddenMessage" style="display: none;">
+    <h2>You are the best thing that ever happened to me 💖</h2>
+  </div>
 
-  function toggleMusic() {
-    const music = document.getElementById("bg-music");
-    const button = document.querySelector(".music-btn");
-    if (music.paused) {
-      music.play();
-      button.innerText = "⏸ Pause Music";
-    } else {
-      music.pause();
-      button.innerText = "💖 Play Music";
-    }
-  }
-</script>
-  <!-- JavaScript to reveal the message -->
-<script>
-  function revealMessage() {
-    const message = document.getElementById("love-message");
-    message.classList.toggle("show");
-  }
-</script>
-  <!-- Music -->
-<audio id="bgMusic" src="indila.mp3" autoplay loop></audio>
-<button id="musicBtn">Pause Music</button>
+  <!-- Music Player -->
+  <audio id="bgMusic" src="indila.mp3" autoplay loop></audio>
+  <button id="musicBtn">Pause Music</button>
 
-<!-- Hidden Message -->
-<button id="revealBtn">Tap to Reveal</button>
-<div id="hiddenMessage" style="display: none;">
-  <h2>I love your clumsiness and the way you talk to me, Ruchu ❤️</h2>
-</div>
+  <!-- Scripts -->
   <script>
-  const music = document.getElementById('bgMusic');
-  const musicBtn = document.getElementById('musicBtn');
-  const revealBtn = document.getElementById('revealBtn');
-  const hiddenMsg = document.getElementById('hiddenMessage');
+    // Floating hearts
+    const heartsContainer = document.querySelector('.hearts');
+    setInterval(() => {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heartsContainer.appendChild(heart);
+      setTimeout(() => heart.remove(), 4000);
+    }, 500);
 
-  musicBtn.addEventListener('click', () => {
-    if (music.paused) {
-      music.play();
-      musicBtn.textContent = 'Pause Music';
-    } else {
-      music.pause();
-      musicBtn.textContent = 'Play Music';
-    }
-  });
+    // Music Button
+    const music = document.getElementById('bgMusic');
+    const musicBtn = document.getElementById('musicBtn');
+    musicBtn.addEventListener('click', () => {
+      if (music.paused) {
+        music.play();
+        musicBtn.textContent = 'Pause Music';
+      } else {
+        music.pause();
+        musicBtn.textContent = 'Play Music';
+      }
+    });
 
-  revealBtn.addEventListener('click', () => {
-    hiddenMsg.style.display = 'block';
-    revealBtn.style.display = 'none';
-  });
+    // Reveal Button
+    const revealBtn = document.getElementById('revealBtn');
+    const hiddenMsg = document.getElementById('hiddenMessage');
+    revealBtn.addEventListener('click', () => {
+      hiddenMsg.style.display = 'block';
+      revealBtn.style.display = 'none';
+    });
   </script>
 </body>
 </html>
