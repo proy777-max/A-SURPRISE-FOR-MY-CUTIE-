@@ -7,24 +7,45 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <audio autoplay loop>
-    <source src="music.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
-  <div class="container">
-    <h1>To My Ruchu 💌</h1>
-    <p class="letter">
-      My love, <br/><br/>
-      Every day with you has been a beautiful page in our story. From the way you talk to me—even in your most clumsy, adorable moments—to the way your eyes light up with dreams, I fall in love with you all over again. 💗<br/><br/>
-      This website is my little gift to you, to celebrate all the love we’ve shared for over a year now. Thank you for choosing me, loving me, and being you. I adore you more than words can ever express. <br/><br/>
-      Yours forever,<br/>
-      Me 💕
+  <!-- Floating hearts -->
+<div class="hearts-container"></div>
+
+<!-- Music control button -->
+<button class="music-btn" onclick="toggleMusic()">💖 Play Music</button>
+<audio id="bg-music" loop>
+  <source src="indila.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Tap to Reveal Love Message -->
+<div class="surprise-wrapper">
+  <button class="reveal-btn" onclick="revealMessage()">💌 Tap to Reveal</button>
+  <div id="love-message" class="hidden-message">
+    <h2>Dear Ruchu,</h2>
+    <p>
+      I love sonama ✨, your clumsy little ways and how you never get enough talking to me. how you always come back to me even if i say bad to u. You make even
+      the smallest moments feel like magic. This is my little surprise for you on 
+      Girlfriend’s Day. sorry i forgot what day is today 🥲🥲 💖 I love you endlessly ruchu.
     </p>
-    <div class="photos">
-      <img src="ruchu1.jpg" alt="Ruchu Photo 1" />
-      <img src="ruchu2.jpg" alt="Ruchu Photo 2" />
-      <img src="ruchu3.jpg" alt="Ruchu Photo 3" />
-    </div>
   </div>
+</div>
+
+<!-- JavaScript -->
+<script>
+  function revealMessage() {
+    document.getElementById('love-message').classList.add('show');
+  }
+
+  function toggleMusic() {
+    const music = document.getElementById("bg-music");
+    const button = document.querySelector(".music-btn");
+    if (music.paused) {
+      music.play();
+      button.innerText = "⏸ Pause Music";
+    } else {
+      music.pause();
+      button.innerText = "💖 Play Music";
+    }
+  }
+</script>
 </body>
 </html>
